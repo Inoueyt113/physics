@@ -132,26 +132,34 @@ string binaryLeftShift(string binaryNum, int i)
     return result;
 }
 
-string binaryDevide(string a, string b)
+string binaryDivide(string a, string b)
 {
     int maxLen = max(a.length(), b.length());
 
-    string result = "";
+    string result(maxLen, '0'); // resultを長さmaxLenの'0'で初期化
     string next = a;
 
-    for (int i = maxLen; i > 0; i--)
+    cout << b + "/";
+
+    for (int i = 0; i < a.length() - b.length() + 1; i++)
     {
-        string shiftNum = binaryLeftShift(b, i - b.length());
+        cout << next << endl;                                          // iの範囲を修正
+        string shiftNum = binaryLeftShift(b, maxLen - i - b.length()); // binaryLeftShiftの実装が必要
         cout << shiftNum << endl;
 
         if (stoi(binaryToDecimal(next)) >= stoi(binaryToDecimal(shiftNum)))
         {
-            next = binaryDifference(next, shiftNum);
-            result[maxLen - i] = '1';
+            next = binaryDifference(next, shiftNum); // binaryDifferenceの実装が必要
+            result[i] = '1';                         // resultに文字を設定
         }
         else
-            result[maxLen - i] = '0';
+            cout << "-> 0" << endl;
     }
+    result.pop_back();     // 最下位ビットを削除
+    result = "0" + result; // 最上位ビットに0を挿入
+
+    result.pop_back();     // 最下位ビットを削除
+    result = "0" + result; // 最上位ビットに0を挿入
 
     return result;
 }
@@ -168,7 +176,7 @@ int main()
 
     string sum = binaryAddition(binaryNum1, binaryNum2, false);
     string dif = binaryDifference(binaryNum1, binaryNum2);
-    string div = binaryDevide(binaryNum1, binaryNum2);
+    string div = binaryDivide(binaryNum1, binaryNum2);
 
     cout << binaryNum1 << " + " << binaryNum2 << " = " << sum << endl;
     cout << binaryNum1 << " - " << binaryNum2 << " = " << dif << endl;
