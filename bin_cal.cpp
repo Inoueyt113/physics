@@ -143,23 +143,17 @@ string binaryDivide(string a, string b)
 
     for (int i = 0; i < a.length() - b.length() + 1; i++)
     {
-        cout << next << endl;                                          // iの範囲を修正
-        string shiftNum = binaryLeftShift(b, maxLen - i - b.length()); // binaryLeftShiftの実装が必要
-        cout << shiftNum << endl;
+        string shiftNum = binaryLeftShift(b, maxLen - i - b.length());
 
         if (stoi(binaryToDecimal(next)) >= stoi(binaryToDecimal(shiftNum)))
         {
-            next = binaryDifference(next, shiftNum); // binaryDifferenceの実装が必要
-            result[i] = '1';                         // resultに文字を設定
+            next = binaryDifference(next, shiftNum);
+            result[i] = '1';
         }
-        else
-            cout << "-> 0" << endl;
     }
-    result.pop_back();     // 最下位ビットを削除
-    result = "0" + result; // 最上位ビットに0を挿入
 
-    result.pop_back();     // 最下位ビットを削除
-    result = "0" + result; // 最上位ビットに0を挿入
+    for (int i = 0; i < b.length() - 1; i++)
+        result.pop_back();
 
     return result;
 }
