@@ -11,3 +11,7 @@ https://colab.research.google.com/drive/1mg7Gea3czWx1hOr3nDqAxkvaq94M3rAi?authus
 ## week3 gosa_graph.py 
 マクローリン展開で近似したsin関数と実際のsin関数の誤差をグラフにしました。
 https://colab.research.google.com/drive/18yLV3XPdun4Wcq7RiYJep8t-_YrjRrPj?usp=sharing
+
+## week5 kadai1,2.py 
+単振動、振り子の運動の微分方程式の数値解をオイラー法とホイン法で比較し、グラフにしました。
+https://colab.research.google.com/drive/1TXM8-4nnLDrLcDN8-H3nMzUmVH5d6pdv?usp=sharing
